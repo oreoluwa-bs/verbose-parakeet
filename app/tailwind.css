@@ -13,6 +13,8 @@ body {
 
 @layer base {
   :root {
+    --dashboard-background: 216 20% 95.1%;
+    --dashboard-foreground: 0 0% 3.9%;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
