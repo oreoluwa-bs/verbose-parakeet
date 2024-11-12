@@ -1,4 +1,7 @@
 import axios from "axios";
+import attractionService from "./hotel";
+import hotelService from "./activity";
+import flightService from "./flight";
 
 export const API_ENDPOINT = import.meta.env.VITE_BOOKING_COM_API_URL;
 export const api = axios.create({
@@ -40,6 +43,9 @@ api.interceptors.response.use(
   }
 );
 
-export const syncCore = Object.freeze({
+export const booking = Object.freeze({
+  attraction: attractionService({ api }),
+  hotel: hotelService({ api }),
+  flight: flightService({ api }),
   // projects: projectsService({ api }),
 });
