@@ -17,7 +17,7 @@ import { Separator } from "./ui/separator";
 
 export function AppHeader() {
   return (
-    <header className="flex h-20 sticky top-0 items-center justify-between gap-2 border-b px-4 py-6 overflow-clip bg-background">
+    <header className="flex h-20 z-30 sticky top-0 items-center justify-between gap-2 border-b px-4 py-6 overflow-clip bg-background">
       <div className="inline-flex gap-8 items-center">
         <Link to={"/"}>
           <img src="/logo.png" alt="logo" className="h-10 " />

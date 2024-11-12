@@ -34,12 +34,14 @@ export default {
           foreground: "hsl(var(--popover-foreground))",
         },
         dashboard: {
-          DEFAULT: "hsl(var(--dashboard))",
+          DEFAULT: "hsl(var(--dashboard-background))",
           foreground: "hsl(var(--dashboard-foreground))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          100: "hsl(var(--primary-100))",
+          900: "hsl(var(--primary-900))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -55,6 +57,7 @@ export default {
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
+          200: "hsl(var(--destructive-200))",
           foreground: "hsl(var(--destructive-foreground))",
         },
         border: "hsl(var(--border))",

@@ -56,7 +56,9 @@ export default function App() {
         {/* <AppSidebar /> */}
         <SidebarInset className="bg-dashboard">
           <AppHeader />
-          <Outlet />
+          <div className="py-8">
+            <Outlet />
+          </div>
         </SidebarInset>
       </SidebarProvider>
     </>
