@@ -1,5 +1,15 @@
 import { NavLink } from "@remix-run/react";
-import { ChevronsUpDownIcon, HomeIcon } from "lucide-react";
+import {
+  BookOpenTextIcon,
+  BriefcaseIcon,
+  ChevronsUpDownIcon,
+  GraduationCapIcon,
+  HomeIcon,
+  HotelIcon,
+  LuggageIcon,
+  PackageIcon,
+  PlaneTakeoffIcon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 
 const mainMenu = [
@@ -9,31 +19,31 @@ const mainMenu = [
   },
   {
     label: "Hotels",
-    icon: HomeIcon,
+    icon: HotelIcon,
   },
   {
     label: "Flights",
-    icon: HomeIcon,
+    icon: PlaneTakeoffIcon,
   },
   {
     label: "Study",
-    icon: HomeIcon,
+    icon: GraduationCapIcon,
   },
   {
     label: "Visa",
-    icon: HomeIcon,
+    icon: BookOpenTextIcon,
   },
   {
     label: "Immigration",
-    icon: HomeIcon,
+    icon: LuggageIcon,
   },
   {
     label: "Medical",
-    icon: HomeIcon,
+    icon: BriefcaseIcon,
   },
   {
     label: "Vacation",
-    icon: HomeIcon,
+    icon: PackageIcon,
   },
 ];
 
@@ -56,8 +66,9 @@ export function AppSidebar() {
           );
         })}
       </nav>
+      <div className="flex-1" />
 
-      <div className="w-full mt-10">
+      <div className="w-full mt-20">
         <Button
           size="lg"
           className="w-full px-2 text-muted-foreground"
