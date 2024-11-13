@@ -1,4 +1,12 @@
 import { Button } from "~/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "~/components/ui/dialog";
 
 export function AddFlightCard() {
   return (
@@ -7,9 +15,25 @@ export function AddFlightCard() {
       <p className="text-sm mt-2">
         Build, personalize, and optimize your itineraries with our trip planner.
       </p>
-      <Button className="w-full mt-9" variant="secondary">
-        Add Flights
-      </Button>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="w-full mt-9" variant="secondary">
+            Add Flights
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[725px]">
+          <DialogHeader>
+            <DialogTitle>Search Flights</DialogTitle>
+            <DialogDescription>
+              Search for flights to add to your itinarary!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4 max-h-[80vh] overflow-auto">
+            {/* <AddF /> */}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

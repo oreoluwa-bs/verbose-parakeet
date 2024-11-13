@@ -2,15 +2,23 @@ import { Link } from "@remix-run/react";
 import {
   CalendarIcon,
   MapPinIcon,
+  PlusIcon,
   StarIcon,
   WavesIcon,
   WineIcon,
   XIcon,
 } from "lucide-react";
 import { Button, buttonVariants } from "~/components/ui/button";
+import { useItineraryStore } from "~/features/itinerary-store";
 import { Hotel } from "~/lib/bookingapi/hotel";
 
 export function HotelCard({ hotel }: { hotel: Hotel }) {
+  const addHotelToItinerary = useItineraryStore.use.addToHotels();
+  const removeFromHotels = useItineraryStore.use.removeFromHotels();
+  const isInItineraryList = useItineraryStore.use.isInHotels()(
+    hotel.property.id
+  );
+
   return (
     <div className="bg-background text-foreground rounded-md overflow-hidden">
       <div className="flex flex-col lg:flex-row">
@@ -18,7 +26,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
           <img
             src={hotel.property.photoUrls[0]}
             alt={hotel.accessibilityLabel}
-            className="w-full lg:w-[232px] aspect-video lg:aspect-square object-cover rounded-md"
+            className="w-full lg:w-[180px] aspect-video lg:aspect-square object-cover rounded-md"
           />
         </div>
         <div className="flex-1 py-5">
@@ -64,7 +72,7 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
             </span>
           </div>
 
-          <div className="flex border-y border-border my-6 px-5 py-4 text-muted-foreground justify-between">
+          <div className="flex gap-4 border-y border-border my-6 px-5 py-4 text-muted-foreground justify-between">
             <div className="flex gap-2">
               <span>Facilities: </span>
               <span className="flex gap-2">
@@ -129,12 +137,27 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
             </Link>
           </div>
         </div>
-        <Button
-          variant="destructive"
-          className="h-auto self-stretch rounded-s-none"
-        >
-          <XIcon />
-        </Button>
+        {isInItineraryList ? (
+          <Button
+            variant="destructive"
+            className="h-auto self-stretch rounded-s-none"
+            onClick={() => {
+              removeFromHotels(hotel.property.id);
+            }}
+          >
+            <XIcon />
+          </Button>
+        ) : (
+          <Button
+            variant="secondary"
+            className="h-auto self-stretch rounded-s-none"
+            onClick={() => {
+              addHotelToItinerary(hotel);
+            }}
+          >
+            <PlusIcon />
+          </Button>
+        )}
       </div>
     </div>
   );

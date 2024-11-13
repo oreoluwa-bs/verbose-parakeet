@@ -1,4 +1,13 @@
 import { Button } from "~/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "~/components/ui/dialog";
+import { AddHotelForm } from "./add-hotel-form";
 
 export function AddHotelCard() {
   return (
@@ -7,7 +16,23 @@ export function AddHotelCard() {
       <p className="text-sm mt-2">
         Build, personalize, and optimize your itineraries with our trip planner.
       </p>
-      <Button className="w-full mt-9">Add Hotels</Button>
+
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button className="w-full mt-9">Add Hotels</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[725px]">
+          <DialogHeader>
+            <DialogTitle>Search Hotels</DialogTitle>
+            <DialogDescription>
+              Search for hotels to add to your itinarary!
+            </DialogDescription>
+          </DialogHeader>
+          <div className="py-4 max-h-[80vh] overflow-auto">
+            <AddHotelForm />
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
