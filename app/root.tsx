@@ -54,10 +54,10 @@ export default function App() {
     <div>
       <AppHeader />
       <div className="bg-dashboard relative grid lg:grid-cols-[283px_1fr]">
-        <div className="hidden lg:block h-[calc(100svh-80px)] w-full sticky top-20 self-start py-8 px-8">
+        <div className="hidden lg:block h-[calc(100svh-80px)] w-full sticky top-20 self-start py-6 px-6">
           <AppSidebar />
         </div>
-        <main className="py-8">
+        <main className="py-6 px-6">
           <Outlet />
         </main>
       </div>
