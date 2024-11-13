@@ -1,6 +1,6 @@
 import axios from "axios";
-import attractionService from "./hotel";
-import hotelService from "./activity";
+import hotelService from "./hotel";
+import attractionService from "./activity";
 import flightService from "./flight";
 
 export const API_ENDPOINT = import.meta.env.VITE_BOOKING_COM_API_URL;

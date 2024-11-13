@@ -17,6 +17,7 @@ export default function Index() {
   return (
     <div className="bg-background p-6 rounded-md">
       <DashboardBanner />
+
       <section className="flex gap-4 mt-6 justify-between items-start">
         <div className="flex-1">
           <Badge variant="accent" className="px-2 text-sm gap-2">
@@ -64,6 +65,7 @@ export default function Index() {
         <AddHotelCard />
         <AddFlightCard />
       </section>
+
       <section className="mt-16">
         <h2 className="font-semibold text-2xl mt-2">Trip itineraries</h2>
         <p className="font-medium text-muted-foreground text-base tracking-tighter">

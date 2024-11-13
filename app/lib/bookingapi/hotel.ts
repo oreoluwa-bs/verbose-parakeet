@@ -3,7 +3,7 @@ import { ReqConfig, Service } from "./types";
 import { formatURLSearchParams } from "./utils";
 
 function hotelService({ api }: Service) {
-  const prefix = "v1/hotels";
+  const prefix = "/v1/hotels";
 
   const searchHotelDestination = async (
     data: {
@@ -15,25 +15,7 @@ function hotelService({ api }: Service) {
       status: boolean;
       message: string;
       timestamp: number;
-      data: {
-        dest_type: string;
-        cc1: string;
-        city_name: string;
-        label: string;
-        longitude: number;
-        latitude: number;
-        type: string;
-        region: string;
-        city_ufi: null | number;
-        name: string;
-        roundtrip: string;
-        country: string;
-        image_url: string;
-        dest_id: string;
-        nr_hotels: number;
-        lc: string;
-        hotels: number;
-      }[];
+      data: HotelDestination[];
     };
 
     const filters = new URLSearchParams(formatURLSearchParams(data)).toString();
@@ -44,6 +26,7 @@ function hotelService({ api }: Service) {
         ...reqConfig,
       }
     );
+
     return result;
   };
 
@@ -60,7 +43,11 @@ function hotelService({ api }: Service) {
       status: boolean;
       message: string;
       timestamp: number;
-      data: Hotel;
+      data: {
+        appear: any[];
+        hotels: Hotel[];
+        meag: any[];
+      };
     };
 
     const filters = new URLSearchParams(formatURLSearchParams(data)).toString();
@@ -81,6 +68,27 @@ function hotelService({ api }: Service) {
 }
 
 export default hotelService;
+
+export interface HotelDestination {
+  dest_type: string;
+  cc1: string;
+  city_name: string;
+  label: string;
+  longitude: number;
+  latitude: number;
+  type: string;
+  region: string;
+  city_ufi: null | number;
+  name: string;
+  roundtrip: string;
+  country: string;
+  image_url: string;
+  dest_id: string;
+  nr_hotels: number;
+  lc: string;
+  hotels: number;
+  search_type: string;
+}
 
 export interface Hotel {
   accessibilityLabel: string;
