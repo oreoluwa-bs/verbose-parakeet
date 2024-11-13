@@ -15,7 +15,7 @@ import { ItinararyList } from "~/features/itinerary/components/itinarary-list";
 
 export default function Index() {
   return (
-    <div className="bg-background p-6">
+    <div className="bg-background p-6 rounded-md">
       <DashboardBanner />
       <section className="flex gap-4 mt-6 justify-between items-start">
         <div className="flex-1">

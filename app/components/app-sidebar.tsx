@@ -1,178 +1,77 @@
-import * as React from "react"
+import { NavLink } from "@remix-run/react";
+import { ChevronsUpDownIcon, HomeIcon } from "lucide-react";
+import { Button } from "./ui/button";
 
-import { SearchForm } from "~/components/search-form"
-import {
-    Sidebar,
-    SidebarContent,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarRail,
-} from "~/components/ui/sidebar"
+const mainMenu = [
+  {
+    label: "Activities",
+    icon: HomeIcon,
+  },
+  {
+    label: "Hotels",
+    icon: HomeIcon,
+  },
+  {
+    label: "Flights",
+    icon: HomeIcon,
+  },
+  {
+    label: "Study",
+    icon: HomeIcon,
+  },
+  {
+    label: "Visa",
+    icon: HomeIcon,
+  },
+  {
+    label: "Immigration",
+    icon: HomeIcon,
+  },
+  {
+    label: "Medical",
+    icon: HomeIcon,
+  },
+  {
+    label: "Vacation",
+    icon: HomeIcon,
+  },
+];
 
-// This is sample data.
-const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-  ],
-}
-
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar() {
   return (
-    <Sidebar {...props}>
-      <SidebarHeader>
+    <div className="bg-white w-full h-full rounded-md p-5">
+      <nav className="inline-flex flex-col gap-5 text-muted-foreground">
+        {mainMenu.map((link, idx) => {
+          return (
+            <NavLink
+              to="#"
+              key={link.label + idx}
+              className="inline-flex gap-2 items-center"
+            >
+              <span>
+                <link.icon strokeWidth="1.5" />
+              </span>
+              <span className="text-sm font-medium">{link.label}</span>
+            </NavLink>
+          );
+        })}
+      </nav>
 
-        <SearchForm />
-      </SidebarHeader>
-      <SidebarContent>
-        {/* We create a SidebarGroup for each parent. */}
-        {data.navMain.map((item) => (
-          <SidebarGroup key={item.title}>
-            <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {item.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
-                      <a href={item.url}>{item.title}</a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        ))}
-      </SidebarContent>
-      <SidebarRail />
-    </Sidebar>
-  )
+      <div className="w-full mt-10">
+        <Button
+          size="lg"
+          className="w-full px-2 text-muted-foreground"
+          variant="secondary"
+        >
+          <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+            Go
+          </div>
+          <div className="flex flex-col gap-0.5 leading-none">
+            <span className="font-semibold text-xs">Personal Account</span>
+          </div>
+          <ChevronsUpDownIcon className="ml-auto" />
+        </Button>
+      </div>
+    </div>
+  );
 }

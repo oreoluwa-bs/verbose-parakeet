@@ -8,7 +8,7 @@ import {
 } from "@remix-run/react";
 
 import { AppHeader } from "./components/app-header";
-import { SidebarInset, SidebarProvider } from "./components/ui/sidebar";
+import { AppSidebar } from "./components/app-sidebar";
 import "./tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -51,16 +51,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <>
-      <SidebarProvider>
-        {/* <AppSidebar /> */}
-        <SidebarInset className="bg-dashboard">
-          <AppHeader />
-          <div className="py-8">
-            <Outlet />
-          </div>
-        </SidebarInset>
-      </SidebarProvider>
-    </>
+    <div>
+      <AppHeader />
+      <div className="bg-dashboard relative grid lg:grid-cols-[283px_1fr]">
+        <div className="hidden lg:block h-[calc(100svh-80px)] w-full sticky top-20 self-start py-8 px-8">
+          <AppSidebar />
+        </div>
+        <main className="py-8">
+          <Outlet />
+        </main>
+      </div>
+    </div>
   );
 }
