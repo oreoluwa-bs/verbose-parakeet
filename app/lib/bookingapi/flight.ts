@@ -13,25 +13,7 @@ function flightService({ api }: Service) {
       status: boolean;
       message: string;
       timestamp: number;
-      data: {
-        id: string;
-        type: string;
-        name: string;
-        code: string;
-        city?: string;
-        cityName?: string;
-        regionName?: string;
-        country: string;
-        countryName: string;
-        countryNameShort?: string;
-        photoUri: string;
-        distanceToCity?: {
-          value: number;
-          unit: string;
-        };
-        parent?: string;
-        region?: string;
-      }[];
+      data: FlightLocation[];
     };
 
     const filters = new URLSearchParams(formatURLSearchParams(data)).toString();
@@ -81,6 +63,26 @@ function flightService({ api }: Service) {
 }
 
 export default flightService;
+
+export interface FlightLocation {
+  id: string;
+  type: string;
+  name: string;
+  code: string;
+  city?: string;
+  cityName?: string;
+  regionName?: string;
+  country: string;
+  countryName: string;
+  countryNameShort?: string;
+  photoUri: string;
+  distanceToCity?: {
+    value: number;
+    unit: string;
+  };
+  parent?: string;
+  region?: string;
+}
 
 interface BaggagePolicy {
   code: string;

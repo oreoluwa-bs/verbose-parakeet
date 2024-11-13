@@ -10,6 +10,7 @@ import {
 } from "~/components/ui/dialog";
 import { ActivityCard } from "~/features/activity/components/activity-card";
 import { AddActivityForm } from "~/features/activity/components/add-activity-form";
+import { AddFlightForm } from "~/features/flight/components/add-flight-form";
 import { AddHotelForm } from "~/features/hotels/components/add-hotel-form";
 import { HotelCard } from "~/features/hotels/components/hotel-card";
 import { useItineraryStore } from "~/features/itinerary-store";
@@ -56,7 +57,7 @@ function FlightList() {
                 </DialogDescription>
               </DialogHeader>
               <div className="py-4 max-h-[80vh] overflow-auto">
-                {/* <AddF /> */}
+                <AddFlightForm />
               </div>
             </DialogContent>
           </Dialog>
@@ -81,7 +82,7 @@ function FlightList() {
                     </DialogDescription>
                   </DialogHeader>
                   <div className="py-4 max-h-[80vh] overflow-auto">
-                    {/* <AddF /> */}
+                    <AddFlightForm />
                   </div>
                 </DialogContent>
               </Dialog>

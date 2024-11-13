@@ -7,6 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog";
+import { AddFlightForm } from "./add-flight-form";
 
 export function AddFlightCard() {
   return (
@@ -30,7 +31,7 @@ export function AddFlightCard() {
             </DialogDescription>
           </DialogHeader>
           <div className="py-4 max-h-[80vh] overflow-auto">
-            {/* <AddF /> */}
+            <AddFlightForm />
           </div>
         </DialogContent>
       </Dialog>
