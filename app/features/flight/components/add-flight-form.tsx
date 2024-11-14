@@ -169,9 +169,11 @@ function SearchFlightForm() {
         <div className="grid gap-8">
           <div className="grid grid-cols-2 gap-8">
             <div className="grid items-center gap-2 ">
+              <Label htmlFor="from">From</Label>
               <SelectFlightLocation value={from} setValue={setFrom} />
             </div>
             <div className="grid items-center gap-2 ">
+              <Label htmlFor="to">To</Label>
               <SelectFlightLocation value={to} setValue={setTo} />
             </div>
           </div>
@@ -202,6 +204,7 @@ function SearchFlightForm() {
                     hotel={h}
                     addHotelToItinerary={addHotelToItinerary}
                   /> */}
+                  -----
                 </li>
               );
             })}
