@@ -1,5 +1,6 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
+import { netlifyPlugin } from "@netlify/remix-adapter/plugin";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 declare module "@remix-run/node" {
@@ -9,6 +10,9 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
+  server: {
+    port: 5174,
+  },
   plugins: [
     remix({
       future: {
@@ -19,6 +23,7 @@ export default defineConfig({
         v3_lazyRouteDiscovery: true,
       },
     }),
+    netlifyPlugin(),
     tsconfigPaths(),
   ],
 });
