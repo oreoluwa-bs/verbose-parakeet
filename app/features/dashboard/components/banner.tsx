@@ -12,7 +12,11 @@ export function DashboardBanner() {
         <ArrowLeftIcon strokeWidth="1.5" />
       </Button>
 
-      <img src="/banner.svg" alt="" className="w-full h-[200px] object-cover" />
+      <img
+        src="/banner.svg"
+        alt=""
+        className="w-full h-[200px] object-cover object-bottom"
+      />
     </div>
   );
 }
